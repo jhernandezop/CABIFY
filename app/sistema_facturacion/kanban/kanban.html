@@ -485,7 +485,7 @@ function load_camban(tipo){
 								data:JSON.stringify({
 													   "tx" : "F0",
 													   "usuario" : "op",
-													   "periodo" : moment().subtract(1, 'months').format("YYYY-MM"),
+													   "periodo" : moment().format("YYYY-MM"),
 													   "proceso":"stats",
 									   					"destino":constantes.destino
 													   
@@ -589,7 +589,7 @@ function load_camban(tipo){
 											//$("#filtro_Mes").closest(".filtro").remove()
 											$("#conter_search_GRUPOS").html("&nbsp;")
 											
-											$("#usuario_").html("Período: "+moment().subtract(1, 'months').format("MM-YYYY"))
+											$("#usuario_").html("Período: "+moment().format("MM-YYYY"))
 											
 										}else if(data.estatus=="NO OK"){
 											controlar_no_ok_desconocido_error("NO OK", data)
@@ -2398,7 +2398,7 @@ function enviar_archivos_proceso(paso){
 					if(data.estatus){
 						if(data.estatus=="OK" || data.estatus=="FIN"){
 							
-							$("#lista_formularios").html('<iframe src="https://s2.openpartner.cl/kibana/s/cabify/app/kibana#/dashboard/b998c600-3acb-11e9-a075-d56d28588383?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3A%27'+fecha_definitiva_facturacion+'T00%3A00%3A00.000Z%27%2Cmode%3Aabsolute%2Cto%3A%27'+fecha_definitiva_facturacion+'T23%3A59%3A59.999Z%27))" style="border:0px;" height="600" width="100%"></iframe>')
+							$("#lista_formularios").html('<iframe src="https://s2.openpartner.cl/kibana/s/cabify/app/kibana#/dashboard/b998c600-3acb-11e9-a075-d56d28588383?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3A%27'+fecha_periodo_facturacion+'01'+'T00%3A00%3A00.000Z%27%2Cmode%3Aabsolute%2Cto%3A%27'+fecha_definitiva_facturacion+'T23%3A59%3A59.999Z%27))" style="border:0px;" height="600" width="100%"></iframe>')
 							
 							
 							//$("#lista_formularios").html('<iframe src="https://s2.openpartner.cl/kibana/s/cabify/app/kibana#/visualize/edit/e24b6260-50d8-11e9-9810-f932ebb19a8c?embed=true&_g=(refreshInterval%3A(pause%3A!f%2Cvalue%3A5000)%2Ctime%3A(from%3A%27'+fecha_definitiva_facturacion+'T03%3A00%3A00.000Z%27%2Cmode%3Aabsolute%2Cto%3A%27'+fecha_definitiva_facturacion+'T02%3A59%3A59.999Z%27))" style="border:0px;" height="600" width="100%"></iframe>');
@@ -2757,7 +2757,7 @@ function enviar_archivos_proceso_quince_dias(paso){
 	}else if (paso==2){	
 	
 		console.log(JSON.stringify(facturacion))
-		//return false;
+		return false;
 		$.ajax({
 				
 				url: constantes.direccion_base,
@@ -2784,7 +2784,7 @@ function enviar_archivos_proceso_quince_dias(paso){
 					if(data.estatus){
 						if(data.estatus=="OK" || data.estatus=="FIN"){
 							
-							$("#lista_formularios").html('<iframe src="https://s2.openpartner.cl/kibana/s/cabify/app/kibana#/dashboard/b998c600-3acb-11e9-a075-d56d28588383?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3A%27'+fecha_definitiva_facturacion+'T00%3A00%3A00.000Z%27%2Cmode%3Aabsolute%2Cto%3A%27'+fecha_definitiva_facturacion+'T23%3A59%3A59.999Z%27))" style="border:0px;" height="600" width="100%"></iframe>')
+							$("#lista_formularios").html('<iframe src="https://s2.openpartner.cl/kibana/s/cabify/app/kibana#/dashboard/b998c600-3acb-11e9-a075-d56d28588383?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3A%27'+fecha_periodo_facturacion+'01'+'T00%3A00%3A00.000Z%27%2Cmode%3Aabsolute%2Cto%3A%27'+fecha_definitiva_facturacion+'T23%3A59%3A59.999Z%27))" style="border:0px;" height="600" width="100%"></iframe>')
 							
 							
 							//$("#lista_formularios").html('<iframe src="https://s2.openpartner.cl/kibana/s/cabify/app/kibana#/visualize/edit/e24b6260-50d8-11e9-9810-f932ebb19a8c?embed=true&_g=(refreshInterval%3A(pause%3A!f%2Cvalue%3A5000)%2Ctime%3A(from%3A%27'+fecha_definitiva_facturacion+'T03%3A00%3A00.000Z%27%2Cmode%3Aabsolute%2Cto%3A%27'+fecha_definitiva_facturacion+'T02%3A59%3A59.999Z%27))" style="border:0px;" height="600" width="100%"></iframe>');

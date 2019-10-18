@@ -720,8 +720,15 @@ function construir_tabala_resultado(conteos){
 	titulo="sdfsd";
 
 	
-
-
+	$(".tabla_facturas").html("")
+	$(".tabla_facturas").html('<table id="tabla_facturas" class="table table-striped table-bordered nowrap" cellspacing="0" style="width:100%;">'+
+									'<thead>'+
+										'<tr class="thead" ></tr>'+
+									'</thead>'+
+									'<tbody></tbody>'+
+							 	'</table>'+
+							 	'<input hidden id="selecion_tabla_facturas" name="selecion_tabla_facturas" type="text"  class="refrescar_validacion  />'
+						   		)
 	generar_tabla("#tabla_facturas", datos_tabla, "")
 	//$("#tabla_reportes_wrapper").hide();
 	console.log(datos_tabla)
@@ -742,7 +749,16 @@ function construir_tabala_reporte(conteos){
 			  element.emissionDate=moment.unix(element.emissionDate).add(1, 'days').format('DD-MM-YYYY');	
 			  element.totalAmount=formatNumber(element.totalAmount, "$");
 	});
-	console.log(conteos)
+	console.log(conteos);
+	$(".tabla_reportes").html("")
+	$(".tabla_reportes").html('<table id="tabla_reportes" class="table table-striped table-bordered nowrap" cellspacing="0" style="width:100%;">'+
+									'<thead>'+
+										'<tr class="thead" ></tr>'+
+									'</thead>'+
+									'<tbody></tbody>'+
+							 	'</table>'+
+							 	'<input hidden id="selecion_tabla_facturas" name="selecion_tabla_facturas" type="text"  class="refrescar_validacion  />'
+						   		)
 	generar_tabla("#tabla_reportes", conteos, "")
 	//revisar_privilegios();
 	//$("#tabla_reportes_wrapper").show();
